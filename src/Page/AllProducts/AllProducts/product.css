@@ -1,0 +1,6 @@
+.custom-css{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 3fr;
+    /* border: 2px solid green; */
+  }
