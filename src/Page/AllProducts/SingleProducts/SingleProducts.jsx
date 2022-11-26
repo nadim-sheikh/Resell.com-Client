@@ -1,22 +1,51 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const SingleProducts = () => {
+    const {productName,location,uplodeDate,brandNewPrice,reSellPrice,productImage,usedYear,condition,details,sellerName,sellerNumber,_id} =useLoaderData();
+    const {user}= useContext(AuthContext)
+    const handleCart = ()=>{
+        const add = {
+            productImage: productImage,
+            email:user.email,
+            productName:productName,
+            reSellPrice:reSellPrice,
+            id:_id
+        }
+        console.log(add);
+        fetch('http://localhost:5000/cart',{
+            method:'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(add)})
+            .then(res => res.json)
+            .then(data => console.log(data)).catch(err=>console.log(err))
+            toast.success('Cart Added Successfully')
+    }
     return (
-        <div>
-            <div className='flex justify-center items-center'>
-                <div><img src="https://i.postimg.cc/fb1b2sZp/i.png" alt="" /></div>
+        <div className='mx-5 lg:mx-0 md:mx-0'>
+            <div className='lg:flex md:flex justify-center items-center mt-10 mb-5'>
+                <div><img className='h-[700px]' src={productImage} alt="" /></div>
                 <div className='ml-5'>
-                    <h1 className='text-5xl mb-5 font-bold text-[#1185de]'>Product Title</h1>
-                    <p className='text-3xl mb-5 text-gray-300 font-bold'>$100</p>
-                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Years: </span> 2.5 Years</p>
-                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Seller Name: </span> Rifat Islam</p>
-                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Seller Phone: </span> 01306872487</p>
-                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Product Uploader: </span> 11 NOV 2022</p>
-                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Location: </span>Dhaka,Bangladesh,Faridpur</p>
-                    <button className='mt-5 py-2 px-4 rounded bg-[#1185de] text-white'>Add To Cart</button>
+                    <h1 className='text-xl lg:text-5xl md:text-3xl mb-2 md:mb-5 lg:mb-5 font-bold text-[#1185de]'>{productName}</h1>
+                    <p className='text-xl lg:text-3xl md:text-2xl lg:mb-5 mb-2 text-gray-700 font-bold'>Used Price:  {reSellPrice}</p>
+                    <p className='text-xl lg:mb-5 mb-2 text-gray-700 font-bold'>New Price: {brandNewPrice}</p>
+                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Used: </span> {usedYear}</p>
+                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Condition: </span> {condition}</p>
+                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Seller Name: </span> {sellerName}</p>
+                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Seller Phone: </span> {sellerNumber}</p>
+                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Product Uploade: </span> {uplodeDate}</p>
+                    <p className='mb-2 '><span className='text-[#1185de] font-semibold'>Location: </span>{location}</p>
+                    <button onClick={handleCart} className='mt-5 py-2 px-4 rounded bg-[#1185de] text-white'>Add To Cart</button>
                 </div>
             </div>
-            <p className='w-[50rem] mx-auto'><span className='text-[#1185de] font-semibold'>Deities: </span>The iPhone 13 Pro Max is Apple's biggest phone in the lineup with a massive, 6.7 screen that for the first time in an iPhone comes with 120Hz ProMotion display that ensures super smooth scrolling. The benefit of such a gigantic phone is that it also comes with the biggest battery of all iPhone 13 series. Apple also introduces improvements to all three cameras on the Pro Max, the wide, ultra-wide and telephoto zoom ones, but there is no periscope style long-range zoom like on many Android phones.</p>
+            <p className='text-center text-5xl text-[#1185de] mb-2'>Deities</p>
+            <div  className='w-[50rem] inline mx-5 lg:mx-auto md:mx-5 '>
+            <p className='w-[50rem] mx-auto text-xl inline'><span className='text-[#1185de] font-semibold'></span>{details}</p>
+            </div>
         </div>
     );
 };

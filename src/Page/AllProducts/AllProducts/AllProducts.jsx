@@ -1,24 +1,34 @@
-import React, { useEffect, useState } from 'react';
 import './product.css';
 import Product from './product';
 import ProductsFilterBars from '../ProductsFilterBars/ProductsFilterBars';
+import { useEffect, useState } from 'react';
+import { Spinner } from 'flowbite-react';
 
 
 const AllProducts = () => {
-    const [data,setData]= useState([]);
+    const [loading, setLoading] = useState(true);
+    const [products,setData]= useState([]);
     useEffect(()=>{
-        fetch('fackData.json')
+        fetch('http://localhost:5000/products')
         .then(res => res.json())
-        .then(data => setData(data))
+        .then(data => {
+            setData(data)
+            setLoading(false)
+        })
     },[])
     return (
         <div className='custom-css my-20 mx-5 md:mx-20 lg:mx-[100px]'>
-         <ProductsFilterBars/>
-        <div className=' grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10'>
-            {
-          data?.map(p => <Product key={p.usedYear} p={p} />)
-        }
-        </div>
+            <ProductsFilterBars />
+            <div className=' grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10'>
+                {
+                    loading?<Spinner className='w-[50%]'
+                    aria-label="Extra large spinner example"
+                    size="2xl"
+                  />: 
+                    products?.map(produc => <Product key={produc._id} produc={produc} />)
+                
+                }
+            </div>
         </div>
     );
 };

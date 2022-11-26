@@ -6,6 +6,9 @@ import SingleProducts from "../Page/AllProducts/SingleProducts/SingleProducts";
 import Page404 from "../Page/Page404/Page404";
 import Login from "../Page/Authentication/LogIn/Login";
 import SignUp from "../Page/Authentication/SingUp/SignUp";
+import Cart from "../Page/Cart/Cart";
+import UserDashboard from "../Page/Dashboard/UserDashboard/UserDashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +25,14 @@ const router = createBrowserRouter([
                 element: <Home/>
             },
             {
+                path:'/cart',
+                element:<PrivateRoute><Cart/></PrivateRoute>,
+            },
+            {
+                path:'/profile',
+                element: <PrivateRoute><UserDashboard/></PrivateRoute>
+            },
+            {
                 path:'/login',
                 element: <Login/>
             },
@@ -34,8 +45,9 @@ const router = createBrowserRouter([
                 element: <AllProducts/>
             },
             {
-                path:'/hi',
-                element: <SingleProducts/>
+                path:'/product/:id',
+                element: <PrivateRoute><SingleProducts/></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`),
             }
         ]
     }
