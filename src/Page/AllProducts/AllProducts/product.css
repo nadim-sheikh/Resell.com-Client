@@ -4,14 +4,25 @@
     grid-template-columns: 1fr 3fr;
     /* border: 2px solid green; */
   }
+.custom-css2{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* border: 2px solid green; */
+  }
 
   @media (max-width: 390px) {
     .custom-css{
       display: block;
     }
+    .custom-css2{
+      display: block;
+    }
 }
   @media (max-width: 958px) {
     .custom-css{
+      display: block;
+    }
+    .custom-css2{
       display: block;
     }
 }

@@ -9,6 +9,10 @@ import SignUp from "../Page/Authentication/SingUp/SignUp";
 import Cart from "../Page/Cart/Cart";
 import UserDashboard from "../Page/Dashboard/UserDashboard/UserDashboard";
 import PrivateRoute from "./PrivateRoute";
+import AdminLayout from "../Layout/AdminLayout";
+import AllSeller from "../Page/Dashboard/Admin/AllSeller/AllSeller";
+import AllBuyer from "../Page/Dashboard/Admin/AllBuyer/AllBuyer";
+import AddProduct from "../Page/AddProduct/AddProduct";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +35,25 @@ const router = createBrowserRouter([
             {
                 path:'/profile',
                 element: <PrivateRoute><UserDashboard/></PrivateRoute>
+            },
+            {
+                path:'/admin',
+                element: <PrivateRoute><AdminLayout/></PrivateRoute>,
+                children: [
+                    {
+                        path:'/admin/allseller',
+                        element:<AllSeller/>
+                    },
+                    {
+                        path:'/admin/allbuyer',
+                        element:<AllBuyer/>
+                    },
+                    {
+                        path:'/admin/addproduct',
+                        element:<AddProduct/>
+                    },
+                    
+                ]
             },
             {
                 path:'/login',

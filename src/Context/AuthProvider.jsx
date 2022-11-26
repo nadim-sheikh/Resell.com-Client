@@ -22,6 +22,7 @@ const AuthProvider = ({children}) => {
     }
     const logOut = () =>{
         setLoading(true);
+        localStorage.removeItem('resell-token')
         return signOut(auth);
     }
 
