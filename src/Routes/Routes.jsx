@@ -12,7 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminLayout from "../Layout/AdminLayout";
 import AllSeller from "../Page/Dashboard/Admin/AllSeller/AllSeller";
 import AddProduct from "../Page/AddProduct/AddProduct";
-import ProductsFilterBars from "../Page/AllProducts/ProductsFilterBars/ProductsFilterBars";
+import Admin from "../Page/Dashboard/Admin/admin";
 import ProductCategory from "../Page/AllProducts/ProductCategory/ProductCategory";
 import Categoryproduct from "../Page/AllProducts/ProductCategory/Categoryproduct";
 
@@ -42,6 +42,10 @@ const router = createBrowserRouter([
                 path:'/admin',
                 element: <PrivateRoute><AdminLayout/></PrivateRoute>,
                 children: [
+                    {
+                        path:'/admin',
+                        element:<Admin/>
+                    },
                     {
                         path:'/admin/user',
                         element:<AllSeller/>,

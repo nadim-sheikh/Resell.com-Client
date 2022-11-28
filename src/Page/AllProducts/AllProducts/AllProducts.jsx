@@ -2,7 +2,7 @@ import './product.css';
 import Product from './product';
 import ProductsFilterBars from '../ProductsFilterBars/ProductsFilterBars';
 import { useEffect, useState } from 'react';
-import { Spinner } from 'flowbite-react';
+import  Spinner  from '../../../Components/Spinner/Spinner';
 
 
 const AllProducts = () => {
@@ -21,10 +21,7 @@ const AllProducts = () => {
             <ProductsFilterBars />
             <div className=' grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10'>
                 {
-                    loading?<Spinner className='w-[50%]'
-                    aria-label="Extra large spinner example"
-                    size="2xl"
-                  />: 
+                    loading?<Spinner/>: 
                     products?.map(produc => <Product key={produc._id} produc={produc} />)
                 
                 }

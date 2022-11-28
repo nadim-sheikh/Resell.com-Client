@@ -3,10 +3,11 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Form, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import SmallSpinner from '../../../Components/Spinner/SmallSpinner';
 
 const SignUp = () => {
 
-    const { createUser, updateUserProfile, providerLogin } = useContext(AuthContext);
+    const { createUser, updateUserProfile, providerLogin,user } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const handleGoogleSingIN = () => {
         providerLogin(googleProvider)
@@ -90,13 +91,13 @@ const SignUp = () => {
                     <input required type='email' placeholder='Your Email Address' name='email' className=' bg-white mb-5 w-full border border-[#1185de] block' />
                     <input required type="file" name="imageFile" className='mb-5 w-full border border-[#1185de] block' id="" />
                     <select name='accountType' className="select w-full mb-5 rounded-none border border-[#1185de] block">
-                        <option>Admin Account</option>
+                        <option>Admin</option>
                         <option>User Account</option>
                         <option>Seller Account</option>
                     </select>
                     <input required type='password' placeholder='Your Password' name='password' className=' bg-white mb-3 w-full border border-[#1185de] block' />
                     <Link to='/login' className='mb-4 underline'>Have An Account ?</Link>
-                    <input type="submit" value="Sign Up" className='hover:bg-[#292929] bg-[#161616]  text-white py-3 cursor-pointer' />
+                    <button type="submit" className='hover:bg-[#292929] bg-[#161616]  text-white py-3 cursor-pointer'>{user?.email ?<SmallSpinner/>:<p className='text-center'>SignUp</p>} </button>
                     <div className="flex flex-col w-full border-opacity-50">
                         <div className="divider">OR</div>
                     </div>
