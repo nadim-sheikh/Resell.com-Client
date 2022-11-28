@@ -8,12 +8,14 @@ const ProductsFilterBars = () => {
         .then(res => res.json())
         .then(data => setData(data))
     },[])
+    console.log(data);
     return (
         <section className=' mx-5 md:mx-20 lg:mx-[150px] h-full'>
             <div className=''>
                 <h1 className='text-xl font-bold mb-5'>Categories</h1>
                {
-                data?.map(c => <Link key={c._id} className='mr-5 block'><span className='hover:text-[#1185de]'>
+        data?.map(c => <Link to={`/product/category/${c.category_id}`} 
+                key={c._id} className='mr-5 block'><span className='hover:text-[#1185de]'>
                     {c.category}</span></Link>)
                }
             </div>

@@ -15,7 +15,10 @@
       display: block;
     }
     .custom-css2{
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 }
   @media (max-width: 958px) {

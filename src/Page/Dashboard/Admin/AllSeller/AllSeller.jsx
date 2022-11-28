@@ -1,6 +1,8 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const AllSeller = () => {
+    const data = useLoaderData()
     return (
         <div className="overflow-x-auto">
             <table className="table w-full">
@@ -8,32 +10,19 @@ const AllSeller = () => {
                     <tr>
                         <th></th>
                         <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
+                        <th>Email</th>
+                        <th>User Roll</th>
                     </tr>
                 </thead>
                 <tbody>
-
-                    <tr>
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                    </tr>
-
-                    <tr>
-                        <th>2</th>
-                        <td>Hart Hagerty</td>
-                        <td>Desktop Support Technician</td>
-                        <td>Purple</td>
-                    </tr>
-
-                    <tr>
-                        <th>3</th>
-                        <td>Brice Swyre</td>
-                        <td>Tax Accountant</td>
-                        <td>Red</td>
-                    </tr>
+                    {
+                        data.map(u => <tr key={u._id}>
+                            <th>1</th>
+                            <td>{u.name}</td>
+                            <td>{u.email}</td>
+                            <td>{u.accountType}</td>
+                        </tr>)
+                    }
                 </tbody>
             </table>
         </div>

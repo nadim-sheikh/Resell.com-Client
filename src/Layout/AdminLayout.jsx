@@ -16,8 +16,7 @@ const AdminLayout = () => {
                         <p className='text-center'>Email: {user?.email}</p>
                     </div>
                     <Link to='/admin/addproduct' className='mt-5 mb-5 w-full py-2 px-5 bg-[#1185de] text-white rounded-md text-center'>Add Product</Link>   
-                    <Link to='/admin/allseller' className='text-center mb-5 w-full py-2 px-5 bg-[#1185de] text-white rounded-md'>All Seller</Link>   
-                    <Link to='/admin/allbuyer' className='text-center mb-5 w-full py-2 px-5 bg-[#1185de] text-white rounded-md'>All Buyer</Link>
+                    <Link to='/admin/user' className='text-center mb-5 w-full py-2 px-5 bg-[#1185de] text-white rounded-md'>All User</Link>   
 
                 </div>
             </div>

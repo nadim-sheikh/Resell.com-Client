@@ -31,6 +31,7 @@ const Nav = () => {
             {
                 user?.uid ?
                     <>
+                     <Link to='/admin'><li className='list-none inline text-2xl md:text-3xl lg:text-base font-semibold lg:mr-5 hover:text-gray-500'>Dashboard</li></Link>
                     <Link to='/cart'> <BsCartFill className='text-3xl text-[#1185de]'/></Link>
                         <div className="dropdown dropdown-end ml-5">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -71,6 +72,7 @@ const Nav = () => {
                 {
                 user?.uid ?
                     <>
+                    <Link to='/admin'><li className='list-none inline text-2xl md:text-3xl lg:text-base font-semibold lg:ml-5 '>Dashboard</li></Link>
                         <Link to='/cart' className=''> <BsCartFill className='text-3xl text-white'/></Link>
                         <div className="dropdown dropdown-bottom ml-5">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

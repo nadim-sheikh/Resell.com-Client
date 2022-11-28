@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
-import { setAuthToken } from '../../Api/auth';
 
 const Login = () => {
     const { logIn } = useContext(AuthContext)
@@ -25,8 +24,6 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('LogIn Successfully')
-                // Token
-                setAuthToken(result.user)
                 navigate(from, { replace: true })
             })
             .catch((err) => console.error(err));

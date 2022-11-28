@@ -1,6 +1,7 @@
 [
     {
         "category": "Iphone",
+        "category_id": "1",
         "productName": "Iphone 13 Pro Max",
         "brandNewPrice": "150000tk",
         "reSellPrice": "50000tk",
@@ -15,6 +16,7 @@
     },
     {
         "category": "Samsung",
+        "category_id": "2",
         "productName": "Samsung Galaxy S22 Ultra",
         "brandNewPrice": "170000tk",
         "reSellPrice": "70000tk",
@@ -29,6 +31,7 @@
     },
     {
         "category": "Realme",
+        "category_id": "3",
         "productName": "Realme GT Master Edition",
         "brandNewPrice": "35000tk",
         "reSellPrice": "25000tk",
@@ -43,6 +46,7 @@
     },
     {
         "category": "Realme",
+        "category_id": "3",
         "productName": "Realme GT 2 Master Edition",
         "brandNewPrice": "35000tk",
         "reSellPrice": "25000tk",
@@ -57,6 +61,7 @@
     },
     {
         "category": "Iphone",
+        "category_id": "1",
         "productName": "Iphone 13 Pro Max",
         "brandNewPrice": "150000tk",
         "reSellPrice": "50000tk",
@@ -71,6 +76,7 @@
     },
     {
         "category": "Samsung",
+        "category_id": "2",
         "productName": "Samsung Galaxy S22 Ultra",
         "brandNewPrice": "170000tk",
         "reSellPrice": "70000tk",
@@ -85,6 +91,7 @@
     },
     {
         "category": "Oppo",
+        "category_id": "4",
         "productName": "OPPO F21 Pro 5G",
         "brandNewPrice": "32000tk",
         "reSellPrice": "15000tk",
@@ -99,6 +106,7 @@
     },
     {
         "category": "One Plus",
+        "category_id": "5",
         "productName": "One Plus Nord 2 Pro 5G",
         "brandNewPrice": "37000tk",
         "reSellPrice": "20000tk",
@@ -113,6 +121,7 @@
     },
     {
         "category": "Oppo",
+        "category_id": "4",
         "productName": "OPPO F21 Pro 5G",
         "brandNewPrice": "32000tk",
         "reSellPrice": "15000tk",
@@ -125,5 +134,6 @@
         "sellerNumber": "01700226600",
         "location": "Dhaka,Bangladesh"
     }
-    
+           
 ]
+

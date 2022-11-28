@@ -11,8 +11,10 @@ import UserDashboard from "../Page/Dashboard/UserDashboard/UserDashboard";
 import PrivateRoute from "./PrivateRoute";
 import AdminLayout from "../Layout/AdminLayout";
 import AllSeller from "../Page/Dashboard/Admin/AllSeller/AllSeller";
-import AllBuyer from "../Page/Dashboard/Admin/AllBuyer/AllBuyer";
 import AddProduct from "../Page/AddProduct/AddProduct";
+import ProductsFilterBars from "../Page/AllProducts/ProductsFilterBars/ProductsFilterBars";
+import ProductCategory from "../Page/AllProducts/ProductCategory/ProductCategory";
+import Categoryproduct from "../Page/AllProducts/ProductCategory/Categoryproduct";
 
 const router = createBrowserRouter([
     {
@@ -41,12 +43,9 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><AdminLayout/></PrivateRoute>,
                 children: [
                     {
-                        path:'/admin/allseller',
-                        element:<AllSeller/>
-                    },
-                    {
-                        path:'/admin/allbuyer',
-                        element:<AllBuyer/>
+                        path:'/admin/user',
+                        element:<AllSeller/>,
+                        loader: () => fetch('http://localhost:5000/users')
                     },
                     {
                         path:'/admin/addproduct',
@@ -66,6 +65,16 @@ const router = createBrowserRouter([
             {
                 path:'/product',
                 element: <AllProducts/>
+            },
+            {
+                path:'/product/category',
+                element: <ProductCategory/>,
+                children:[
+                    {
+                        path:'/product/category/:id',
+                        element: <Categoryproduct/>
+                    }
+                ]
             },
             {
                 path:'/product/:id',
