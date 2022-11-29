@@ -49,7 +49,7 @@ const router = createBrowserRouter([
                     {
                         path:'/admin/user',
                         element:<AllSeller/>,
-                        loader: () => fetch('http://localhost:5000/users')
+                        loader: () => fetch('https://y-one-pied.vercel.app/users')
                     },
                     {
                         path:'/admin/addproduct',
@@ -77,14 +77,14 @@ const router = createBrowserRouter([
                     {
                         path:'/product/category/:id',
                         element: <Categoryproduct/>,
-                        loader: ({params})=> fetch(`http://localhost:5000/categoriesProducts/${params.id}`)
+                        loader: ({params})=> fetch(`https://y-one-pied.vercel.app/categoriesProducts/${params.id}`)
                     }
                 ]
             },
             {
                 path:'/product/:id',
                 element: <PrivateRoute><SingleProducts/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`),
+                loader: ({params}) => fetch(`https://y-one-pied.vercel.app/products/${params.id}`),
             }
         ]
     }

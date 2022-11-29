@@ -15,7 +15,7 @@ const SingleProducts = () => {
             id:_id
         }
         console.log(add);
-        fetch('http://localhost:5000/cart',{
+        fetch('https://y-one-pied.vercel.app/cart',{
             method:'POST',
             headers: {
                 'content-type': 'application/json'

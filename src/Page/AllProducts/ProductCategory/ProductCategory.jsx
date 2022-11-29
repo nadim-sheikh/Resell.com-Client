@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom';
 const ProductsFilterBars = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://y-one-pied.vercel.app/category')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])

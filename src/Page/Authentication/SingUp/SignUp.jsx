@@ -59,7 +59,7 @@ const SignUp = () => {
 
     const saveUser = (name, email, accountType) => {
         const userId = { name, email, accountType };
-        fetch('http://localhost:5000/users', {
+        fetch('https://y-one-pied.vercel.app/users', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -72,7 +72,7 @@ const SignUp = () => {
     }
 
     const getToken = email=>{
-        fetch(`http://localhost:5000/jwt?email=${email}`)
+        fetch(`https://y-one-pied.vercel.app/jwt?email=${email}`)
         .then(res => res.json())
         .then(data => {
             if(data.accessToken){

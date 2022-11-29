@@ -7,7 +7,7 @@ const Cart = () => {
     const [carts, setCarts] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cart?email=${user.email}`)
+        fetch(`https://y-one-pied.vercel.app/cart?email=${user.email}`)
             .then(res => res.json())
             .then(data => setCarts(data))
     }, [user?.email])
@@ -17,7 +17,7 @@ const Cart = () => {
         const proceed = window.confirm('Are You Sure');
 
         if(proceed){
-            fetch(`http://localhost:5000/cart/${id}`,{
+            fetch(`https://y-one-pied.vercel.app/cart/${id}`,{
                 method:'DELETE'
             })
             .then(res => res.json())

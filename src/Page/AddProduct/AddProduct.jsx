@@ -39,7 +39,7 @@ const AddProduct = () => {
                     sellerName: e.target.sellerName.value,
                     productImage: img.data.display_url
                 }
-                fetch('http://localhost:5000/products', {
+                fetch('https://y-one-pied.vercel.app/products', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

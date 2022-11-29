@@ -9,7 +9,7 @@ const AllProducts = () => {
     const [loading, setLoading] = useState(true);
     const [products,setData]= useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://y-one-pied.vercel.app/products')
         .then(res => res.json())
         .then(data => {
             setData(data)
