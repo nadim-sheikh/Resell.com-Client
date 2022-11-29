@@ -1,11 +1,21 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Login = () => {
-    const { logIn } = useContext(AuthContext)
-
+    const { logIn,providerLogin } = useContext(AuthContext)
+    const googleProvider = new GoogleAuthProvider();
+    const handleGoogleSingIN = () => {
+        providerLogin(googleProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                navigate('/')
+            })
+            .catch(err => console.error(err))
+    }
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -41,6 +51,15 @@ const Login = () => {
                     <Link to='/signup' className='mb-4 underline'>I Don't Have An Account ?</Link>
                     <input type="submit" value="Login" className='bg-black hover:bg-[#262626] text-white py-3 cursor-pointer' />
                 </div>
+                <div className="flex flex-col w-full border-opacity-50">
+                        <div className="divider">OR</div>
+                    </div>
+                    <Link onClick={handleGoogleSingIN} className='bg-[#4286F5] hover:bg-[#2e62b7] p-2 flex items-center rounded-md'>
+                        <span className='bg-white rounded-md p-2 w-[10%]'>
+                            <img src="https://i.postimg.cc/vBZ0x3TL/1200px-Google-G-Logo-svg.png" className='' alt="" />
+                        </span>
+                        <h1 className='text-white ml-20 text-xl'>Sign Up With Google</h1>
+                    </Link>
             </div>
         </form>
     );
