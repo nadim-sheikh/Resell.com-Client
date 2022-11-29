@@ -15,6 +15,7 @@ import AddProduct from "../Page/AddProduct/AddProduct";
 import Admin from "../Page/Dashboard/Admin/admin";
 import ProductCategory from "../Page/AllProducts/ProductCategory/ProductCategory";
 import Categoryproduct from "../Page/AllProducts/ProductCategory/Categoryproduct";
+import Blog from "../Page/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path:'/home',
                 element: <Home/>
+            },
+            {
+                path:'/blog',
+                element: <Blog/>
             },
             {
                 path:'/cart',

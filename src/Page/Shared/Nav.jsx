@@ -23,7 +23,7 @@ const Nav = () => {
         <>
             <Link to='/'><li className='list-none inline text-2xl md:text-3xl lg:text-base font-semibold lg:ml-14'>Home</li></Link>
             <Link to='/product'><li className='list-none inline text-2xl md:text-3xl lg:text-base font-semibold lg:ml-14 '>Products</li></Link>
-            <Link><li className='list-none inline text-2xl md:text-3xl lg:text-base font-semibold lg:mx-14 '>Blogs</li></Link>
+            <Link to='/blog'><li className='list-none inline text-2xl md:text-3xl lg:text-base font-semibold lg:mx-14 '>Blogs</li></Link>
         </>)
 
     const nav2 = (

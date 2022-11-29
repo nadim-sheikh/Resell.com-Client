@@ -91,7 +91,6 @@ const SignUp = () => {
                     <input required type='email' placeholder='Your Email Address' name='email' className=' bg-white mb-5 w-full border border-[#1185de] block' />
                     <input required type="file" name="imageFile" className='mb-5 w-full border border-[#1185de] block' id="" />
                     <select name='accountType' className="select w-full mb-5 rounded-none border border-[#1185de] block">
-                        <option>Admin</option>
                         <option>User Account</option>
                         <option>Seller Account</option>
                     </select>
